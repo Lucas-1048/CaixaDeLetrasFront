@@ -9,10 +9,8 @@ ThemeData cdlTheme = ThemeData(
     primarySwatch: CDLThemeColor.primaryColor,
   ),
   inputDecorationTheme: InputDecorationTheme(
-    labelStyle: TextStyle(color: Colors.white),
     floatingLabelStyle: TextStyle(color: CDLThemeColor.primaryColor),
     outlineBorder: BorderSide(color: Colors.black, width: 1.0),
-    hintStyle: TextStyle(color: Colors.white),
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
     ),
