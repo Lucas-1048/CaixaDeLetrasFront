@@ -12,7 +12,7 @@ class LoginTextButton extends StatelessWidget {
       onPressed: () {},
       child: Text(
         labelText,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.normal,
         ),

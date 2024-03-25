@@ -9,14 +9,15 @@ ThemeData cdlTheme = ThemeData(
     primarySwatch: CDLThemeColor.primaryColor,
   ),
   inputDecorationTheme: InputDecorationTheme(
-    floatingLabelStyle: TextStyle(color: CDLThemeColor.primaryColor),
-    outlineBorder: BorderSide(color: Colors.black, width: 1.0),
+    floatingLabelStyle: const TextStyle(
+        color: CDLThemeColor.primaryColor), // TODO: Ajustar temas
+    outlineBorder: const BorderSide(color: Colors.black, width: 1.0),
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
     ),
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(
+      borderSide: const BorderSide(
         color: Colors.white,
         width: 1.0,
       ),

@@ -35,8 +35,8 @@ class LoginButton extends StatelessWidget {
                     valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                   ),
                 ),
-                child: Text(
-                  'Entrar',
+                child: const Text(
+                  'Entrar', // TODO: Substituir texto por tradução
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.normal,

@@ -24,7 +24,8 @@ class CDLTextFormField extends StatelessWidget {
         validator: validator,
         controller: controller,
         obscureText: obscureText,
-        style: TextStyle(
+        style: const TextStyle(
+          //TODO: Verificar estilo e tema principal
           color: Colors.white,
         ),
         keyboardType: keyboardType,

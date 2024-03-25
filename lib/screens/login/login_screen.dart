@@ -88,11 +88,11 @@ class LoginScreen extends StatelessWidget {
                                 validator: (passwordText) {
                                   if (passwordText == null ||
                                       passwordText.isEmpty) {
-                                    return 'Campo obrigatório';
+                                    return 'Campo obrigatório'; // Ajustar traduções
                                   }
 
                                   if (loginFailured) {
-                                    return 'E-mail ou senha inválidos';
+                                    return 'E-mail ou senha inválidos'; // Ajustar traduções
                                   }
 
                                   return null;
@@ -117,7 +117,8 @@ class LoginScreen extends StatelessWidget {
                                 child: Column(
                                   children: [
                                     LoginTextButton(
-                                      labelText: 'Esqueci senha',
+                                      labelText:
+                                          'Esqueci senha', //TODO: Ajustar traduções
                                     ),
                                     LoginTextButton(
                                       labelText: 'Cadastre-se',
