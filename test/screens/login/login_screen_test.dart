@@ -34,7 +34,7 @@ void main() {
 
       final finderCDLTextForm = find.byType(CDLTextFormField);
 
-      expect(finderCDLTextForm, findsExactly(2));
+      expect(finderCDLTextForm, findsExactly(3));
 
       final findEmail = find.text('E-mail');
       final findPassword = find.text('Senha');
