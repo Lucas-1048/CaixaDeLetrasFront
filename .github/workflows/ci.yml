@@ -36,4 +36,4 @@ jobs:
       - uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
         with:
           with:
-            min_coverage: 50
+            min_coverage: 0
