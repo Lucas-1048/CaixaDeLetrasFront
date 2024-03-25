@@ -32,8 +32,6 @@ class LoginScreen extends StatelessWidget {
             if (state is LoginFailured) {
               loginFailured = true;
               formKeyLogin.currentState!.validate();
-              // emailController.clear();
-              // passwordController.clear();
             }
           },
           child: Container(
@@ -73,6 +71,7 @@ class LoginScreen extends StatelessWidget {
                                   if (emailText == null || emailText.isEmpty) {
                                     return 'Campo obrigatório';
                                   }
+
                                   if (loginFailured) {
                                     return 'E-mail ou senha inválidos';
                                   }
@@ -91,6 +90,7 @@ class LoginScreen extends StatelessWidget {
                                       passwordText.isEmpty) {
                                     return 'Campo obrigatório';
                                   }
+
                                   if (loginFailured) {
                                     return 'E-mail ou senha inválidos';
                                   }
@@ -100,11 +100,13 @@ class LoginScreen extends StatelessWidget {
                               ),
                               LoginButton(
                                 onPressed: () {
-                                  if (formKeyLogin.currentState!.validate()) {
+                                  if (formKeyLogin.currentState!.validate() ||
+                                      loginFailured) {
                                     LoginUser loginUser = LoginUser(
                                       email: emailController.text,
                                       password: passwordController.text,
                                     );
+
                                     context.read<LoginBloc>().add(
                                         LoginFetchEvent(loginUser: loginUser));
                                   }
