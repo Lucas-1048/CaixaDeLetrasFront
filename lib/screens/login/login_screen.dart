@@ -1,6 +1,7 @@
 import 'package:caixa_de_letras/bloc/screens/login/login_bloc.dart';
 import 'package:caixa_de_letras/components/cdl_text_form_field.dart';
 import 'package:caixa_de_letras/models/User/login_user.dart';
+import 'package:caixa_de_letras/routes/routes_name.dart';
 import 'package:caixa_de_letras/screens/login/components/login_button.dart';
 import 'package:caixa_de_letras/screens/login/components/login_text_button.dart';
 import 'package:caixa_de_letras/screens/login/components/title_login.dart';
@@ -112,16 +113,18 @@ class LoginScreen extends StatelessWidget {
                                   }
                                 },
                               ),
-                              const SizedBox(
+                              SizedBox(
                                 height: 100,
                                 child: Column(
                                   children: [
-                                    LoginTextButton(
+                                    const LoginTextButton(
                                       labelText:
                                           'Esqueci senha', //TODO: Ajustar traduções
                                     ),
                                     LoginTextButton(
                                       labelText: 'Cadastre-se',
+                                      onPressed: () => Navigator.pushNamed(
+                                          context, RoutesNames.signUp.name),
                                     )
                                   ],
                                 ),
