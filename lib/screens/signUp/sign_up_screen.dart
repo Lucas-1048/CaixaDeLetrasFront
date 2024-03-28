@@ -1,9 +1,9 @@
+import 'package:caixa_de_letras/components/cdl_circle_avatar.dart';
 import 'package:caixa_de_letras/components/cdl_date_form_field.dart';
 import 'package:caixa_de_letras/components/cdl_drop_down_field.dart';
 import 'package:caixa_de_letras/components/cdl_multi_select_drop_down.dart';
 import 'package:caixa_de_letras/components/cdl_text_form_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -59,33 +59,40 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
             ),
-            Center(
-                child: const Text('Sign Up',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                    ))),
+            const Center(
+              //TODO: Arquivo de strings
+              child: Text(
+                'Sign Up',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ),
+            ),
           ],
         ),
       ),
-      body: Container(
-        width: double.maxFinite,
-        padding: const EdgeInsets.all(22),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Colors.grey.shade900,
-              Colors.grey.shade800,
-              Colors.grey.shade700,
-            ],
+      body: Form(
+        key: formKeySignUp,
+        child: Container(
+          width: double.maxFinite,
+          padding: const EdgeInsets.all(22),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Colors.grey.shade900,
+                Colors.grey.shade800,
+                Colors.grey.shade700,
+              ],
+            ),
           ),
-        ),
-        child: ListView.separated(
-          itemBuilder: (context, index) => listWidgets[index],
-          itemCount: listWidgets.length,
-          separatorBuilder: (context, index) => const SizedBox(height: 20),
+          child: ListView.separated(
+            itemBuilder: (context, index) => listWidgets[index],
+            itemCount: listWidgets.length,
+            separatorBuilder: (context, index) => const SizedBox(height: 20),
+          ),
         ),
       ),
     );
@@ -93,6 +100,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   void _initializeWidgetList() {
     listWidgets = [
+      const CDLCircleAvatar(),
       CDLTextFormField(
         labelText: 'Nome de usuário',
         controller: nameController,
@@ -153,6 +161,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
         labelText: 'Data de nascimento',
         controller: birthDateController,
         width: 320,
+        validator: (birthDate) {
+          if (birthDate == null || birthDate.isEmpty) {
+            return 'Campo obrigatório'; // Ajustar traduções
+          }
+
+          return null;
+        },
       ),
       CDLDropDownField(
         items: const ['Masculino', 'Feminino'],
@@ -164,6 +179,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
         itens: ['Terror', 'Suspense', 'Comédia'],
         selectedItems: genderItens,
         width: 320,
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          ElevatedButton(
+              onPressed: () {
+                if (formKeySignUp.currentState!.validate()) {}
+              },
+              child: const Text('Cadastrar')),
+        ],
       )
     ];
   }

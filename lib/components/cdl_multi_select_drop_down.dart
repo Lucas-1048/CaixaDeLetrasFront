@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
 class CDLMultiSelectDropDown extends StatelessWidget {
-  const CDLMultiSelectDropDown(
-      {super.key,
-      this.width,
-      required this.itens,
-      required this.selectedItems,
-      required this.labelText});
+  const CDLMultiSelectDropDown({
+    super.key,
+    this.width,
+    required this.itens,
+    required this.selectedItems,
+    required this.labelText,
+    this.validator,
+  });
   final double? width;
   final List<String> itens;
   final List<String> selectedItems;
   final String labelText;
+  final String? Function(List<dynamic>?)? validator;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,6 +49,7 @@ class CDLMultiSelectDropDown extends StatelessWidget {
           selectedItems.clear();
           selectedItems.addAll(values.map((e) => e.toString()));
         },
+        validator: validator,
       ),
     );
   }
